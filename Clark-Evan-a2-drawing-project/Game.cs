@@ -12,6 +12,7 @@ namespace Game10003
     {
         // Place your variables here:
         Color skyBlue = new Color(135, 206, 250);
+        Color windows = new Color(255, 255, 10);
 
 
 
@@ -41,6 +42,49 @@ namespace Game10003
             Draw.Rectangle(220, 240, 80,160);
             //Draw fourth building
             Draw.Rectangle(300, 140, 100, 260);
+
+            //draw windows on building 1
+            for (int index1 = 0; index1 < 11; index1++)
+            {
+                int yOffset1 = index1 * 20;
+                Draw.FillColor = windows;
+                Draw.Square(10 , 180 + yOffset1, 10);
+                Draw.Square(30, 180 + yOffset1, 10);
+                Draw.Square(50, 180 + yOffset1, 10);
+                Draw.Square(70, 180 + yOffset1, 10);
+                Draw.Square(90, 180 + yOffset1, 10);
+            }
+            //draw windows on building 2
+            for (int index2 = 0; index2 < 11; index2++)
+            {
+                int yOffset2 = index2 * 30;
+                Draw.FillColor = windows;
+                Draw.Square(130, 70 + yOffset2, 10);
+                Draw.Square(150, 70 + yOffset2, 10);
+                Draw.Square(180, 70 + yOffset2, 10);
+                Draw.Square(200, 70 + yOffset2, 10);
+            }
+            //draw windows on building 3
+            for (int index3 = 0; index3 < 8; index3++)
+            {
+                int xOffset3 = index3 * 10;
+                Draw.FillColor = windows;
+                Draw.Square(220 + xOffset3, 250, 10);
+                Draw.Square(220 + xOffset3, 280, 10);
+                Draw.Square(220 + xOffset3, 310, 10);
+                Draw.Square(220 + xOffset3, 340, 10);
+                Draw.Square(220 + xOffset3, 370, 10);
+            }
+            //draw windows on building 4
+            for (int index4 = 0; index4 < 12; index4++)
+            {
+                int yOffset4 = index4 * 20;
+                Draw.FillColor = windows;
+                Draw.Square(310, 150 + yOffset4, 10);
+                Draw.Square(340, 150 + yOffset4, 10);
+                Draw.Square(350, 150 + yOffset4, 10);
+                Draw.Square(380, 150 + yOffset4, 10);
+            }
         }
     }
 }
