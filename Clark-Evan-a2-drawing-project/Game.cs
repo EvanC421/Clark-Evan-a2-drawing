@@ -11,9 +11,14 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
+        //Colours:
         Color skyBlue = new Color(135, 206, 250);
         Color windows = new Color(255, 255, 10);
+        Color BobsColour = new Color(177, 156, 217);
 
+        //Bob's coordinates
+        float xCoordinates = Random.Integer(40, 360);
+        float yCoordinates = Random.Integer(40, 360);
 
 
         /// <summary>
@@ -31,6 +36,8 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
+            float mouseLocationX = Input.GetMouseX();
+            float mouseLocationY = Input.GetMouseY();
             Window.ClearBackground(skyBlue);
 
             //Draw first building
@@ -48,7 +55,7 @@ namespace Game10003
             {
                 int yOffset1 = index1 * 20;
                 Draw.FillColor = windows;
-                Draw.Square(10 , 180 + yOffset1, 10);
+                Draw.Square(10, 180 + yOffset1, 10);
                 Draw.Square(30, 180 + yOffset1, 10);
                 Draw.Square(50, 180 + yOffset1, 10);
                 Draw.Square(70, 180 + yOffset1, 10);
@@ -84,6 +91,26 @@ namespace Game10003
                 Draw.Square(340, 150 + yOffset4, 10);
                 Draw.Square(350, 150 + yOffset4, 10);
                 Draw.Square(380, 150 + yOffset4, 10);
+            }
+            //Bob is drawn for the first time
+            //Bob's body
+            Draw.FillColor = BobsColour;
+            Draw.Circle(xCoordinates, yCoordinates, 40);
+            //Bob's eyes
+            Draw.FillColor = Color.Black;
+            Draw.Circle(xCoordinates - 20, yCoordinates - 10, 7);
+            Draw.FillColor = Color.Black;
+            Draw.Circle(xCoordinates + 20, yCoordinates - 10, 7);
+            //Bob's mouth
+            Draw.Rectangle(xCoordinates - 30, yCoordinates + 10, 60, 10);
+
+            //Player puts mouse over Bob
+            while (mouseLocationX <= xCoordinates+40 && mouseLocationX >= xCoordinates-40 && mouseLocationY <= yCoordinates+40 && mouseLocationY >= yCoordinates-40)
+            {
+                xCoordinates = Random.Integer(40, 360);
+                yCoordinates = Random.Integer(40, 360);
+                Draw.FillColor = BobsColour;
+                Draw.Circle(xCoordinates, yCoordinates, 40);
             }
         }
     }
